@@ -78,23 +78,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Audit Form Validation & Static-Site Integration Notice
-  /*
-   * FORM INTEGRATION NOTE:
-   * By default, this static HTML template validates inputs and shows a confirmation message
-   * without sending data to a server. To connect a live backend such as Formspree or Web3Forms:
-   *   1. Set action="https://formspree.io/f/YOUR_FORM_ID" on <form id="auditForm">.
-   *   2. Replace the demo block below with a fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } }).
-   */
+  // 5. Audit Form Validation & Google Forms Submission
+  const GOOGLE_FORM_CONFIG = {
+    // Paste your Google Form responder URL here (e.g. https://docs.google.com/forms/d/e/.../viewform or /formResponse)
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdbDiN6CSJ4paFV6-j2AXuLa_pTeZg7z5b53iCrNt5wCLtxDA/viewform',
+    // Replace each value with the matching entry.<id> from Google Forms ("Get pre-filled link")
+    fields: {
+      name: 'entry.459135839',
+      email: 'entry.108625520',
+      website: 'entry.450833107',
+      budget: 'entry.270905387',
+      message: 'entry.104189477',
+    },
+  };
+
+  const resolveGoogleFormEndpoint = (rawUrl) => {
+    const trimmed = rawUrl.trim();
+    if (!trimmed.startsWith('https://docs.google.com/forms/')) {
+      return null;
+    }
+    const base = trimmed.split('?')[0].replace(/\/viewform\/?$/, '/formResponse');
+    return base.endsWith('/formResponse') ? base : `${base.replace(/\/$/, '')}/formResponse`;
+  };
+
   const auditForm = document.getElementById('auditForm');
   const formFeedback = document.getElementById('formFeedback');
 
   if (auditForm && formFeedback) {
-    auditForm.addEventListener('submit', (event) => {
+    const submitBtn = auditForm.querySelector('button[type="submit"]');
+
+    auditForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const name = auditForm.name.value.trim();
       const email = auditForm.email.value.trim();
       const website = auditForm.website.value.trim();
+      const budget = auditForm.budget.value;
       const message = auditForm.message.value.trim();
 
       const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -105,10 +123,45 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      formFeedback.textContent =
-        'Validation passed (Demo Mode): Connect Formspree or Netlify Forms in index.html to receive live submissions.';
-      formFeedback.className = 'form-feedback is-success';
-      auditForm.reset();
+      const endpoint = resolveGoogleFormEndpoint(GOOGLE_FORM_CONFIG.formUrl);
+      const hasPlaceholderFields = Object.values(GOOGLE_FORM_CONFIG.fields).some(
+        (id) => !/^entry\.\d+$/.test(id)
+      );
+
+      if (!endpoint || hasPlaceholderFields) {
+        formFeedback.textContent =
+          'Form setup incomplete: add your Google Form URL and entry IDs to GOOGLE_FORM_CONFIG in script.js.';
+        formFeedback.className = 'form-feedback is-error';
+        return;
+      }
+
+      const payload = new URLSearchParams();
+      payload.append(GOOGLE_FORM_CONFIG.fields.name, name);
+      payload.append(GOOGLE_FORM_CONFIG.fields.email, email);
+      payload.append(GOOGLE_FORM_CONFIG.fields.website, website);
+      payload.append(GOOGLE_FORM_CONFIG.fields.budget, budget);
+      payload.append(GOOGLE_FORM_CONFIG.fields.message, message);
+
+      if (submitBtn) submitBtn.disabled = true;
+      formFeedback.textContent = 'Sending your audit request...';
+      formFeedback.className = 'form-feedback';
+
+      try {
+        await fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: payload,
+        });
+        formFeedback.textContent =
+          'Thanks! Your growth audit request has been submitted. We’ll send your teardown within 48 hours.';
+        formFeedback.className = 'form-feedback is-success';
+        auditForm.reset();
+      } catch (error) {
+        formFeedback.textContent = 'Could not send your request right now. Please try again in a moment.';
+        formFeedback.className = 'form-feedback is-error';
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
     });
   }
 });
