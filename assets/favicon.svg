@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#111210" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#2c2f28" stroke-width="2" />
+  <circle cx="51" cy="13" r="4" fill="#c8ff32" />
+  <text
+    x="31"
+    y="35"
+    fill="#c8ff32"
+    font-family="ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace"
+    font-size="25"
+    font-weight="700"
+    letter-spacing="-1"
+    text-anchor="middle"
+    dominant-baseline="central"
+  >S/S</text>
+</svg>
