@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- EDIT: Page Title & SEO Description -->
+  <title>Signal &amp; Scale — Modern Digital Marketing Agency</title>
+  <meta name="description" content="Performance-driven digital marketing agency specializing in paid acquisition, conversion design, technical SEO, and revenue retention." />
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- EDIT: Top Announcement Strip (Optional) -->
+  <div class="top-strip">
+    <div class="container top-strip-inner">
+      <span class="mono-tag"><span class="pulse-dot" aria-hidden="true"></span> Q2 GROWTH RETAINERS OPEN — 2 PARTNER SLOTS LEFT</span>
+      <a href="#audit" class="top-strip-link">Claim Free Channel Audit &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="top">
+    <div class="container nav-inner">
+      <!-- EDIT: Brand Logo / Name -->
+      <a href="#top" class="brand" aria-label="Signal & Scale Home">
+        <span class="brand-mark" aria-hidden="true">S/S</span>
+        <span class="brand-text">SIGNAL &amp; SCALE</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#services">Capabilities</a>
+        <a href="#process">Methodology</a>
+        <a href="#work">Case Studies</a>
+        <a href="#pricing">Retainers</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#audit" class="btn btn-primary btn-sm">Book Strategy Call</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" hidden>
+      <nav class="mobile-nav-links" aria-label="Mobile navigation">
+        <a href="#services">Capabilities</a>
+        <a href="#process">Methodology</a>
+        <a href="#work">Case Studies</a>
+        <a href="#pricing">Retainers</a>
+        <a href="#faq">FAQ</a>
+        <a href="#audit" class="btn btn-primary btn-full">Book Strategy Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <!-- EDIT: Eyebrow & Headline -->
+          <p class="eyebrow mono-tag">// FULL-FUNNEL PERFORMANCE AGENCY</p>
+          <h1>Turn ad spend into <span class="highlight-word">compounding</span> revenue.</h1>
+          <p class="hero-lead">
+            We engineer high-converting acquisition engines for ambitious DTC and B2B brands—uniting creative testing, conversion architecture, and clean attribution.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#audit" class="btn btn-primary">Request Growth Audit</a>
+            <a href="#work" class="btn btn-outline">Explore Case Studies</a>
+          </div>
+
+          <!-- EDIT: Sample Key Figures (Replace with your verified agency metrics) -->
+          <div class="hero-metrics" aria-label="Sample agency performance benchmarks">
+            <div class="metric-item">
+              <strong>4.2x</strong>
+              <span>Avg. Blended ROAS*</span>
+            </div>
+            <div class="metric-item">
+              <strong>-31%</strong>
+              <span>CAC Reduction*</span>
+            </div>
+            <div class="metric-item">
+              <strong>48h</strong>
+              <span>Creative Sprint Cycle</span>
+            </div>
+          </div>
+          <p class="sample-disclaimer">*Sample template figures — replace with your agency’s verified results.</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-card">
+            <!-- EDIT: Replace image inside assets/ -->
+            <img src="assets/hero-marketing-studio.jpg" alt="Modern digital marketing strategists reviewing brand campaign materials on a sunlit studio desk" width="900" height="700" />
+            <div class="floating-kpi">
+              <span class="mono-tag">LIVE CAMPAIGN SNAPSHOT</span>
+              <div class="kpi-row">
+                <strong>+184%</strong>
+                <span class="kpi-pill">Qualified Pipeline</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Mini ROAS Estimator -->
+          <div class="roas-widget" aria-label="Interactive ROAS Estimator">
+            <div class="roas-header">
+              <span class="mono-tag">INTERACTIVE ROI ESTIMATOR</span>
+              <span class="roas-badge">Model v2.4</span>
+            </div>
+            <div class="roas-controls">
+              <label for="adSpendRange">
+                Monthly Ad Spend: <strong id="adSpendValue">$15,000</strong>
+              </label>
+              <input type="range" id="adSpendRange" min="5000" max="100000" step="2500" value="15000" />
+            </div>
+            <div class="roas-outputs">
+              <div>
+                <span class="roas-label">Est. Revenue (3.8x)</span>
+                <strong id="estRevenue">$57,000</strong>
+              </div>
+              <div>
+                <span class="roas-label">Projected Lift (+28%)</span>
+                <strong id="estLift" class="accent-text">+$15,960/mo</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Category Ticker -->
+    <section class="channel-strip" aria-label="Supported marketing platforms">
+      <div class="container channel-grid">
+        <span class="mono-tag">CORE CHANNELS:</span>
+        <span>META ADS</span>
+        <span>GOOGLE &amp; YOUTUBE</span>
+        <span>TIKTOK CREATIVE</span>
+        <span>KLAVIYO CRM</span>
+        <span>CRO LANDING PAGES</span>
+        <span>GA4 ATTRIBUTION</span>
+      </div>
+    </section>
+
+    <!-- Bento Grid Capabilities -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="mono-tag">// CAPABILITIES</span>
+          <h2>Built as a unified growth pod, not siloed freelancers.</h2>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Featured Dark Card -->
+          <article class="bento-card bento-featured">
+            <div class="card-top">
+              <span class="card-index mono-tag">01</span>
+              <span class="chip chip-lime">Most Requested</span>
+            </div>
+            <h3>Paid Acquisition &amp; Creative Testing</h3>
+            <p>Weekly hook variations, thumb-stopping UGC scripts, and disciplined media buying across Meta, Google Search, and TikTok.</p>
+            <ul class="check-list">
+              <li>12+ fresh ad creatives shipped monthly</li>
+              <li>Automated budget pacing &amp; creative fatigue alerts</li>
+              <li>Server-side CAPI &amp; clean UTM governance</li>
+            </ul>
+          </article>
+
+          <article class="bento-card">
+            <div class="card-top">
+              <span class="card-index mono-tag">02</span>
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 16l2 2 4-4"/></svg>
+            </div>
+            <h3>Conversion Rate Optimization</h3>
+            <p>Bespoke landing pages, A/B split testing, and checkout friction audits that turn existing clicks into paying customers.</p>
+          </article>
+
+          <article class="bento-card">
+            <div class="card-top">
+              <span class="card-index mono-tag">03</span>
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+            </div>
+            <h3>Technical &amp; Content SEO</h3>
+            <p>High-intent programmatic pages, schema architecture, and editorial clusters designed to capture organic demand.</p>
+          </article>
+
+          <article class="bento-card bento-wide">
+            <div class="bento-wide-inner">
+              <div>
+                <div class="card-top">
+                  <span class="card-index mono-tag">04</span>
+                  <span class="chip">LTV Expansion</span>
+                </div>
+                <h3>Lifecycle Email &amp; SMS Retention</h3>
+                <p>Automated welcome sequences, abandoned cart recovery, and VIP segmentation in Klaviyo &amp; HubSpot so you never rent the same customer twice.</p>
+              </div>
+              <div class="mini-bars" aria-hidden="true">
+                <div class="bar-row"><span>Welcome Flow</span><div class="bar"><div style="width: 82%"></div></div><span>8.2% CVR</span></div>
+                <div class="bar-row"><span>Cart Recovery</span><div class="bar"><div style="width: 68%"></div></div><span>14.6% Rec</span></div>
+                <div class="bar-row"><span>VIP Winback</span><div class="bar"><div style="width: 54%"></div></div><span>4.9x ROI</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Step Process -->
+    <section class="section section-alt" id="process">
+      <div class="container">
+        <div class="section-head split-head">
+          <div>
+            <span class="mono-tag">// METHODOLOGY</span>
+            <h2>From messy ad account to predictable scale in 90 days.</h2>
+          </div>
+          <p class="section-sub">No 60-page fluff decks. Every engagement follows a tight weekly shipping cadence.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <span class="step-num mono-tag">STEP 01</span>
+            <h3>Forensic Audit</h3>
+            <p>Deep-dive into pixel health, unit economics, margin thresholds, and historical creative winners within 5 days.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-num mono-tag">STEP 02</span>
+            <h3>Funnel Architecture</h3>
+            <p>We rebuild landing experiences, offer framing, and tracking dashboards before scaling a single dollar.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-num mono-tag">STEP 03</span>
+            <h3>Creative Velocity</h3>
+            <p>Rapid bi-weekly testing sprints isolating winning angles, hooks, and static vs. motion formats.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-num mono-tag">STEP 04</span>
+            <h3>Profit Compounding</h3>
+            <p>Scale winning cohorts while layering email/SMS retention flows to protect contribution margin.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Case Studies -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <span class="mono-tag">// SELECTED CASE STUDIES (SAMPLE TEMPLATE DATA)</span>
+          <h2>Proof built on contribution margin, not vanity impressions.</h2>
+        </div>
+
+        <div class="cases-grid">
+          <article class="case-card">
+            <div class="case-media">
+              <img src="assets/case-study-ecommerce.jpg" alt="Minimalist skincare bottles and stone podiums used in ecommerce performance campaign" width="800" height="560" />
+              <span class="case-tag mono-tag">DTC SKINCARE • PAID + CRO</span>
+            </div>
+            <div class="case-body">
+              <h3>Solis Botanicals — Scaling Subscription AOV</h3>
+              <p>Replaced generic homepage traffic with a 3-step quiz funnel and modular UGC hooks focused on morning routine bundles.</p>
+              <div class="case-stats">
+                <div><strong>+214%</strong><span>Net New Revenue*</span></div>
+                <div><strong>3.9x</strong><span>Blended MER*</span></div>
+                <div><strong>+26%</strong><span>Bundle AOV*</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="case-media">
+              <img src="assets/case-study-saas.jpg" alt="Laptop displaying modern SaaS analytics growth dashboard on travertine desk" width="800" height="560" />
+              <span class="case-tag mono-tag">B2B SAAS • SEARCH + LINKEDIN</span>
+            </div>
+            <div class="case-body">
+              <h3>StackLedger — Cutting Demo Acquisition Cost</h3>
+              <p>Restructured bottom-of-funnel search intent and launched interactive comparison pages for finance team buyers.</p>
+              <div class="case-stats">
+                <div><strong>-38%</strong><span>Cost Per Demo*</span></div>
+                <div><strong>4.4%</strong><span>Landing CVR*</span></div>
+                <div><strong>$1.8M</strong><span>Q1 Pipeline*</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Retainers -->
+    <section class="section section-dark" id="pricing">
+      <div class="container">
+        <div class="section-head pricing-head">
+          <div>
+            <span class="mono-tag mono-lime">// TRANSPARENT RETAINERS</span>
+            <h2>Predictable partnerships aligned with growth.</h2>
+          </div>
+
+          <div class="billing-toggle" role="group" aria-label="Billing frequency toggle">
+            <button type="button" class="toggle-btn is-active" data-billing="monthly">Monthly</button>
+            <button type="button" class="toggle-btn" data-billing="quarterly">Quarterly <span class="save-badge">Save 15%</span></button>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <span class="mono-tag">GROWTH POD</span>
+            <h3>Launch &amp; Traction</h3>
+            <p class="price-desc">Ideal for emerging brands spending $5k–$20k/mo seeking structured creative testing.</p>
+            <div class="price-amount">
+              <strong class="price-val" data-monthly="$3,500" data-quarterly="$2,975">$3,500</strong>
+              <span>/month</span>
+            </div>
+            <ul class="price-list">
+              <li>1 Core Ad Channel (Meta or Google)</li>
+              <li>8 Ad Creative Variations / mo</li>
+              <li>1 Custom CRO Landing Page / qtr</li>
+              <li>Bi-weekly Strategy Sync &amp; Looker Dashboard</li>
+            </ul>
+            <a href="#audit" class="btn btn-outline-light btn-full">Select Growth Pod</a>
+          </article>
+
+          <article class="price-card price-featured">
+            <div class="card-top">
+              <span class="mono-tag">SCALE SYSTEM</span>
+              <span class="chip chip-dark">Most Popular</span>
+            </div>
+            <h3>Full-Funnel Scale</h3>
+            <p class="price-desc">For growing teams ready to unite paid media, landing page experiments, and Klaviyo CRM.</p>
+            <div class="price-amount">
+              <strong class="price-val" data-monthly="$6,200" data-quarterly="$5,270">$6,200</strong>
+              <span>/month</span>
+            </div>
+            <ul class="price-list">
+              <li>Multi-Channel Paid Media (Meta, Google, TikTok)</li>
+              <li>16 Custom Static &amp; Motion Ads / mo</li>
+              <li>Monthly A/B Landing Page Sprints</li>
+              <li>Klaviyo Email/SMS Flow Management</li>
+              <li>Dedicated Slack Channel &amp; Weekly Sync</li>
+            </ul>
+            <a href="#audit" class="btn btn-dark btn-full">Book Full-Funnel Pod</a>
+          </article>
+
+          <article class="price-card">
+            <span class="mono-tag">ENTERPRISE</span>
+            <h3>Custom Growth Lab</h3>
+            <p class="price-desc">Bespoke creative studio, omnichannel attribution, and fractional CMO leadership.</p>
+            <div class="price-amount">
+              <strong class="price-val" data-monthly="$11,000" data-quarterly="$9,350">$11,000</strong>
+              <span>/month</span>
+            </div>
+            <ul class="price-list">
+              <li>Unlimited Creative &amp; UGC Direction</li>
+              <li>Full Technical SEO + Content Program</li>
+              <li>Custom Server-Side Attribution Modeling</li>
+              <li>Executive Board Reporting</li>
+            </ul>
+            <a href="#audit" class="btn btn-outline-light btn-full">Inquire Custom Scope</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample Client Endorsement Placeholder + FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq-layout">
+        <div class="quote-panel">
+          <span class="mono-tag">// SAMPLE CLIENT VOICE (PLACEHOLDER)</span>
+          <blockquote>
+            “Signal &amp; Scale rebuilt our paid creative workflow and landing pages in six weeks. Every Monday call was anchored in contribution margin—not vanity clicks.”
+          </blockquote>
+          <div class="quote-author">
+            <strong>Jordan Ellis</strong>
+            <span>Sample Founder Quote — Replace with real client testimonial</span>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <span class="mono-tag">// FREQUENT QUESTIONS</span>
+          <h2>Before we kick off.</h2>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="true">
+                <span>How quickly can we launch our first campaigns?</span>
+                <span class="acc-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel">
+                <p>Onboarding and forensic tracking audits take 5 business days. New creative batches and restructured campaigns typically go live by day 12.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span>Do we own all ad accounts, data, and creatives?</span>
+                <span class="acc-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel" hidden>
+                <p>Yes, 100%. Everything is built inside your own ad accounts, pixels, and Figma/Drive workspaces. You retain full ownership of every asset.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span>Are there long-term lock-in contracts?</span>
+                <span class="acc-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel" hidden>
+                <p>Monthly retainers operate on a 30-day rolling notice after an initial 60-day calibration sprint. Quarterly partners receive a 15% fee reduction.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" type="button" aria-expanded="false">
+                <span>What minimum ad spend works best with your team?</span>
+                <span class="acc-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="accordion-panel" hidden>
+                <p>We see the strongest velocity for brands investing at least $5,000/month in media spend so statistical testing reaches significance quickly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Audit Section -->
+    <section class="section audit-section" id="audit">
+      <div class="container audit-grid">
+        <div class="audit-copy">
+          <span class="mono-tag mono-lime">// FREE 15-MINUTE LOOM AUDIT</span>
+          <h2>Ready to scale without burning margin?</h2>
+          <p>Share your URL and primary growth bottleneck. We’ll record a custom Loom teardown of your ad account, landing page, and quick-win levers within 48 hours.</p>
+          <div class="audit-meta">
+            <div><span class="mono-tag">EMAIL</span><p>hello@signalscale-demo.com</p></div>
+            <div><span class="mono-tag">HQ</span><p>Austin &bull; Remote Worldwide</p></div>
+          </div>
+        </div>
+
+        <!--
+          FORM INTEGRATION GUIDE:
+          This template uses client-side validation in demo mode.
+          To receive live submissions without a backend, replace action="#" with your Formspree,
+          Web3Forms, or Netlify Forms endpoint (see README.md for step-by-step setup).
+        -->
+        <form class="audit-form" id="auditForm" action="#" method="POST" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="fullName">Your Name *</label>
+              <input type="text" id="fullName" name="name" placeholder="Alex Morgan" required />
+            </div>
+            <div class="field">
+              <label for="workEmail">Work Email *</label>
+              <input type="email" id="workEmail" name="email" placeholder="alex@company.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="websiteUrl">Company Website *</label>
+              <input type="url" id="websiteUrl" name="website" placeholder="https://yourbrand.com" required />
+            </div>
+            <div class="field">
+              <label for="monthlySpend">Monthly Ad Budget</label>
+              <select id="monthlySpend" name="budget">
+                <option value="$5k-$15k">$5,000 – $15,000</option>
+                <option value="$15k-$50k">$15,000 – $50,000</option>
+                <option value="$50k+">$50,000+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="growthGoal">Primary 90-Day Goal *</label>
+            <textarea id="growthGoal" name="message" rows="3" placeholder="Tell us your target CPA, ROAS, or launch timeline..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Send Audit Request &rarr;</button>
+          <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">S/S</span>
+        <span>&copy; <span id="year">2026</span> Signal &amp; Scale. All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Capabilities</a>
+        <a href="#work">Case Studies</a>
+        <a href="#pricing">Retainers</a>
+        <a href="#audit">Contact</a>
+      </div>
+      <p class="template-credit">Website Template by PixelNestByNS</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
