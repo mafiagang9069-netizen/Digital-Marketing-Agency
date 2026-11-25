@@ -103,6 +103,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const auditForm = document.getElementById('auditForm');
   const formFeedback = document.getElementById('formFeedback');
+  const monthlySpend = document.getElementById('monthlySpend');
+  const customBudgetField = document.getElementById('customBudgetField');
+  const customBudgetInput = document.getElementById('customBudget');
+
+  if (monthlySpend && customBudgetField && customBudgetInput) {
+    const syncCustomBudgetField = () => {
+      const isCustom = monthlySpend.value === 'custom';
+      customBudgetField.hidden = !isCustom;
+      customBudgetInput.required = isCustom;
+      if (isCustom) {
+        customBudgetInput.focus();
+      } else {
+        customBudgetInput.value = '';
+      }
+    };
+
+    monthlySpend.addEventListener('change', syncCustomBudgetField);
+    syncCustomBudgetField();
+  }
 
   if (auditForm && formFeedback) {
     const submitBtn = auditForm.querySelector('button[type="submit"]');
@@ -112,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const name = auditForm.name.value.trim();
       const email = auditForm.email.value.trim();
       const website = auditForm.website.value.trim();
-      const budget = auditForm.budget.value;
+      const selectedBudget = auditForm.budget.value;
+      const customBudget = customBudgetInput ? customBudgetInput.value.trim() : '';
+      const budget = selectedBudget === 'custom' ? customBudget : selectedBudget;
       const message = auditForm.message.value.trim();
 
       const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -120,6 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!name || !emailValid || !website || !message) {
         formFeedback.textContent = 'Please complete all required fields with a valid work email and URL.';
         formFeedback.className = 'form-feedback is-error';
+        return;
+      }
+
+      if (selectedBudget === 'custom' && !customBudget) {
+        formFeedback.textContent = 'Please enter your custom monthly ad budget.';
+        formFeedback.className = 'form-feedback is-error';
+        if (customBudgetInput) customBudgetInput.focus();
         return;
       }
 
@@ -156,6 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
           'Thanks! Your growth audit request has been submitted. We’ll send your teardown within 48 hours.';
         formFeedback.className = 'form-feedback is-success';
         auditForm.reset();
+        if (customBudgetField && customBudgetInput) {
+          customBudgetField.hidden = true;
+          customBudgetInput.required = false;
+        }
       } catch (error) {
         formFeedback.textContent = 'Could not send your request right now. Please try again in a moment.';
         formFeedback.className = 'form-feedback is-error';
